@@ -30,6 +30,7 @@ Victoria 2 actualizado: **fiel a la historia real hasta hoy**, con un **futuro a
 | Carrera espacial | **Programa espacial completo**: presupuesto, investigación, cohetes y misiones que pueden fallar. |
 | Cuándo llega el espacio | **Configurable en cada partida**: "histórico" (cohetes en los 40–50, la Luna hacia 1969, colonias desde 2030–2050) o "por tecnología" (sin fechas). |
 | Fechas prioritarias | **1836**, **1492** y **actualidad (2026)**. |
+| 1492 | **Historia real de 1492**: el mundo tal como era (Reyes Católicos y Granada, imperios precolombinos, otomanos, Ming…), con datos históricos. La era de los descubrimientos, jugable. |
 | Gráficos | Los genera Claude por código o IA. |
 | Equipo | El dueño diseña y prueba; Claude escribe y prueba. |
 | Código | El mod va en **`KH4IN/UPM-MOD`** (público). Nuestra versión de Alice va en **`KH4IN/upm-alice`** (privado), que conserva su licencia GPL-3.0. Las licencias de cada parte están en `LICENCIAS.md`. |
@@ -67,7 +68,7 @@ Cada fase deja el mod jugable, y no se empieza la siguiente sin pasar sus prueba
 - [x] Revisar los **2.842 avisos** al cargar el UPM. Quedan 1.797: 1.626 quitan reclamaciones que no existen, 130 usan `FROM` donde no hay país de origen y 41 son casos sueltos, entre ellos 6 garantías y 3 relaciones de vasallaje que no se cargan. Las reglas están en `herramientas/`.
 - [x] Iconos de la lista de ejércitos que desaparecen al cambiar el idioma con la partida abierta. No era el cambio de idioma: la traducción española de Alice tenía 753 textos vacíos que borraban el inglés.
 - [x] Probar guardar y cargar, el multijugador y más de 15 años seguidos desde 2000. Partida automática de 2000 a 2250 sin cierres, guardando y cargando en cada tramo. Multijugador en este PC, seis meses sin desincronización. La partida de 2250 se abre y se termina con ventana.
-- [ ] Partida larga jugada a mano, con guerras. Solo la puede hacer una persona: la dejo para Ricardo.
+- [ ] Probar una partida larga **en automático** (la hace la sesión local, no Ricardo): un país controlado por la IA, con guerras forzadas, guardando y cargando partidas y con capturas.
 - [ ] Comprobar el equilibrio, porque la economía de Alice es distinta. Medido en Alice de 1836 a 1936: la población crece de forma razonable, pero los precios no tienen tope y el PIB da saltos imposibles. La comparación con `v2game.exe` y el arreglo de fondo pasan a la fase 4a.
 
 ### Fase 2: estabilidad y topes
@@ -77,7 +78,7 @@ Cada fase deja el mod jugable, y no se empieza la siguiente sin pasar sus prueba
 
 ### Fase 3: fechas prioritarias
 - [ ] **1836**: repaso de la historia y del equilibrio.
-- [ ] **1492**: revisar qué tiene hoy el UPM y completarlo.
+- [ ] **1492**: rehacer la fecha con la historia real de 1492 (países, fronteras, gobernantes, religiones, culturas, población y economía de la época), con fuentes. Partir de lo que tiene el UPM.
 - [ ] **2026**: fronteras, gobiernos, partidos, economía, ejércitos y alianzas actuales.
 
 ### Fase 4: sistemas
@@ -154,7 +155,6 @@ Se reprograma la economía en el código C++ de nuestra versión de Alice, por p
 ## 7. Pendiente de decidir
 
 - Nombre de la expansión.
-- Detalle de la fecha de 1492.
 - Qué va primero en la fase 4: la economía realista (4a) o la política. La propuesta es la economía, porque los demás sistemas dependen de ella.
 - Resultado de la prueba de Alice (fase 1), que confirma o corrige este plan.
 
@@ -185,11 +185,11 @@ La sesión local ejecuta este plan **sola y en bucle**, corrigiendo sus propios 
 - No se les pasan archivos del juego ni datos personales, solo los fragmentos necesarios.
 
 ### 8.4. Puntos de control: parar y preguntar a Ricardo
-- Cualquier cosa que **publique o comparta**: subir a GitHub, releases o pasar archivos a otros.
+- Cualquier cosa que **publique para otras personas**: releases, versiones jugables o pasar archivos a otros. Subir a sus ramas de trabajo en GitHub **no** necesita permiso (ver 8.5).
 - Gastar dinero o crear cuentas.
 - Tocar el juego base o la carpeta `Victoria II + UPM` original (no se tocan).
-- Decisiones pendientes del apartado 7: nombre del mod y detalle de 1492. Mientras tanto, se usa un valor provisional y se anota en `DECISIONES.md`.
-- Al terminar cada fase: resumen y visto bueno antes de empezar la siguiente fase grande (de la 3 en adelante).
+- Decisiones pendientes del apartado 7 (el nombre del mod). Mientras tanto, se usa un valor provisional y se anota en `DECISIONES.md`.
+- **Al terminar cada fase NO se para:** deja el informe de la fase (en `PROGRESO.md` y como resumen en su chat) y sigue con la siguiente. Ricardo ya ha aprobado el paso de fase a fase; la sesión en la nube revisa los informes como orquestadora.
 
 ### 8.5. Reglas fijas
 - No borrar ni sobrescribir nada sin copia de seguridad.
@@ -200,5 +200,5 @@ La sesión local ejecuta este plan **sola y en bucle**, corrigiendo sus propios 
   - Nunca se suben archivos del juego base ni binarios.
   - El código de Alice va solo en `KH4IN/upm-alice`, que es privado. Si alguna vez se comparte la versión compilada, hay que dar también su código (GPL).
   - Nada del UPM ni de Alice va al repo `victoria-2-dlcs-fix`.
-  - Subir a GitHub sigue siendo un punto de control: se avisa a Ricardo antes de cada subida.
+  - **Subidas sin preguntar** a ramas de trabajo (no a `main`) en `upm-alice` y `UPM-MOD`, siempre cumpliendo las reglas anteriores. Fusionar en `main` o publicar versiones sí requiere permiso de Ricardo.
 - No inventar resultados: si algo no se ha probado, se dice.
