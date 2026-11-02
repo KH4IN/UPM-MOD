@@ -55,7 +55,7 @@ Cada fase deja el mod jugable, y no se empieza la siguiente sin pasar sus prueba
 - [x] Repo del mod creado: `KH4IN/UPM-MOD`, público.
 - [ ] Subir a `UPM-MOD` los archivos de texto del UPM, con los créditos de su autor. Ni el juego base ni ningún binario.
 - [x] Repo de nuestra versión de Alice creado: `KH4IN/upm-alice`, privado y con licencia GPL-3.0.
-- [ ] Subir a `upm-alice` el código de Project Alice (fork o espejo del original) con sus cambios. Solo código fuente, sin binarios.
+- [x] Subir a `upm-alice` el código de Project Alice (fork o espejo del original) con sus cambios. Están las 10 ramas `upm/*`. Los únicos binarios son las 2 copias de `LLVM-C.dll` y `LLVM-C.lib` que ya trae Alice; nuestros commits no tocan ninguno.
 - [x] Hacer nuestra versión de Alice (fork) y dejar listo su compilado en el PC de pruebas.
 - [x] Traer las herramientas de prueba de la sesión local: arranque automático, partida a máxima velocidad, capturas y medición. Están en `herramientas/pruebas/`.
 - [ ] Flujo de trabajo: rama → cambio → compilado y prueba automática en el PC → fusionar.
