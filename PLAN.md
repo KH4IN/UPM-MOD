@@ -56,7 +56,7 @@ Cada fase deja el mod jugable, y no se empieza la siguiente sin pasar sus prueba
 - [x] Repo de nuestra versión de Alice creado: `KH4IN/upm-alice`, privado y con licencia GPL-3.0.
 - [ ] Subir a `upm-alice` el código de Project Alice (fork o espejo del original) con sus cambios. Solo código fuente, sin binarios.
 - [x] Hacer nuestra versión de Alice (fork) y dejar listo su compilado en el PC de pruebas.
-- [ ] Traer las herramientas de prueba de la sesión local: arranque automático, partida a máxima velocidad, capturas y medición.
+- [x] Traer las herramientas de prueba de la sesión local: arranque automático, partida a máxima velocidad, capturas y medición. Están en `herramientas/pruebas/`.
 - [ ] Flujo de trabajo: rama → cambio → compilado y prueba automática en el PC → fusionar.
 
 ### Fase 1: el UPM en Alice
