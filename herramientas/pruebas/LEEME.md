@@ -17,7 +17,19 @@ Pruebas automáticas de nuestra versión de Alice sobre la copia `Victoria II + 
 | `alice_head.ps1` | Juega a baja prioridad y mide memoria y fecha. |
 | `alice_ciclo.ps1` | Carga, juega, guarda, vuelve a cargar y sigue. |
 | `alice_tramos.ps1` | Juega hasta varios años y guarda cada tramo para volver cerca de un cierre. Si el motor se cierra, muestra `crash_stack.txt`. |
+| `alice_arranque.ps1` | Repite muchos arranques seguidos y cuenta los que fallan. |
 | `savedate.py` | Lee la versión y la fecha de las partidas guardadas. |
+
+## Datos de una partida
+
+Con la opción `-stats`, el juego añade una tanda de datos cada 1 de enero a cuatro archivos de su carpeta. El cuarto, `province_stats.csv`, lista las 15 provincias más pobladas con su crecimiento y sus modificadores, y se lee a simple vista.
+
+| Herramienta | Lee | Qué hace |
+|---|---|---|
+| `alice_stats.py` | `nation_stats.csv` | Resume población, PIB y países. |
+| `alice_serie.py` | `nation_stats.csv` | Saca la evolución año a año. |
+| `alice_precios.py` | `commodity_stats.csv` | Saca la evolución de los precios. |
+| `alice_topes.py` | `limit_stats.csv` | Ordena las tablas del motor por lo llenas que están y calcula cuándo se llenarían. |
 
 ## Partidas con ventana
 

@@ -16,3 +16,11 @@ Cada entrada indica la opción elegida, el motivo y las alternativas. Ricardo pu
 | 2026-11-02 | Las 6 garantías de `Guarantees.txt` siguen sin cargarse | Alice no entiende esa clave y su efecto es pequeño | Añadirla al motor |
 | 2026-11-02 | Máximo de 96 opciones por evento | UPM usa 84 y la lista se puede desplazar | Partir el evento en varios |
 | 2026-11-02 | La fecha pasa a `int32_t` con signo | Las restas de fechas siguen dando negativos, como antes | `uint32_t`, que haría que esas restas dieran números enormes |
+| 2026-11-02 | Regimientos, barcos y construcciones de tierra pasan a 65.000 filas con identificadores de 32 bits | Con 32.000, el jugador dejaría de poder reclutar hacia 2115 | Quedarse en 32.000 y solo evitar el cierre; cambiar el generador de tablas |
+| 2026-11-02 | La construcción de regimientos para en 60.000 y quedan 5.000 filas para rebeldes y movilización | Los regimientos siguen a la población, así que cualquier tope se llena antes de 2250 | Subir el tope sin freno, que solo retrasa el cierre |
+| 2026-11-02 | Fábricas a 32.000 en vez de 65.000 | Bastan para el pico medido de 17.252 y mantienen sus identificadores de 16 bits | Pasarlas a 32 bits, con más memoria y más cambios |
+| 2026-11-02 | Ejércitos a 16.000 y rutas comerciales a 160.000 | Duplican lo necesario; las rutas llegaron a 82.380 | Añadirles también un freno, que por ahora no hace falta |
+| 2026-11-02 | La partida guardada pasa a la versión 46 | El cambio de identificadores altera el formato; las partidas antiguas no cargan | Convertir las partidas antiguas, que nadie necesita todavía |
+| 2026-11-02 | Cerca del tope, el botón de reclutar solo se desactiva, sin explicarlo | Con la partida ya llena de regimientos, es un caso muy raro | Añadir un texto de ayuda, que se puede hacer en la fase 6 |
+| 2026-11-02 | No se cambia `colonial_recruitment` ni el crecimiento mundial | Es un valor del juego base, y el 2 % anual se rehace en la fase 4a | Bajar el modificador ya, que apenas cambia el total |
+| 2026-11-02 | La comparación con `v2game.exe` se aplaza a la fase 4a | No funciona sin ventana, tardaría horas y la fase 4a rehace la economía | Hacerla ahora, sobre una economía que va a cambiar |

@@ -66,13 +66,14 @@ Cada fase deja el mod jugable, y no se empieza la siguiente sin pasar sus prueba
 - [x] Adaptar **76 eventos** que tienen más opciones de las que admite Alice y **93 condiciones** que usan una palabra que no reconoce. Los 76 avisos eran un solo evento de 84 opciones: el límite sube a 96 y se comprobó en partida eligiendo la opción 82.
 - [x] Revisar los **2.842 avisos** al cargar el UPM. Quedan 1.797: 1.626 quitan reclamaciones que no existen, 130 usan `FROM` donde no hay país de origen y 41 son casos sueltos, entre ellos 6 garantías y 3 relaciones de vasallaje que no se cargan. Las reglas están en `herramientas/`.
 - [x] Iconos de la lista de ejércitos que desaparecen al cambiar el idioma con la partida abierta. No era el cambio de idioma: la traducción española de Alice tenía 753 textos vacíos que borraban el inglés.
-- [ ] Probar una partida larga jugando, guardar y cargar, el multijugador y más de 15 años seguidos desde 2000.
-- [ ] Comprobar el equilibrio, porque la economía de Alice es distinta. Medido en Alice de 1836 a 1936: la población crece de forma razonable, pero los precios no tienen tope y el PIB da saltos imposibles. Falta compararlo con `v2game.exe`. El arreglo de fondo pertenece a la fase 4a.
+- [x] Probar guardar y cargar, el multijugador y más de 15 años seguidos desde 2000. Partida automática de 2000 a 2250 sin cierres, guardando y cargando en cada tramo. Multijugador en este PC, seis meses sin desincronización. La partida de 2250 se abre y se termina con ventana.
+- [ ] Partida larga jugada a mano, con guerras. Solo la puede hacer una persona: la dejo para Ricardo.
+- [ ] Comprobar el equilibrio, porque la economía de Alice es distinta. Medido en Alice de 1836 a 1936: la población crece de forma razonable, pero los precios no tienen tope y el PIB da saltos imposibles. La comparación con `v2game.exe` y el arreglo de fondo pasan a la fase 4a.
 
 ### Fase 2: estabilidad y topes
 - [ ] Terminar las correcciones del UPM: partidos que caducan en 2000, prefijos `n_` y claves perdidas.
-- [ ] Subir los topes que necesite la expansión. Primero los fáciles; los de un byte, cuando haga falta.
-- [ ] Pruebas de estrés hasta 2250 con mucha población.
+- [ ] Subir los topes que necesite la expansión. Primero los fáciles; los de un byte, cuando haga falta. Hechos: regimientos, barcos, ejércitos, fábricas, rutas y construcciones de tierra. Los de un byte siguen sin tocar.
+- [ ] Pruebas de estrés hasta 2250 con mucha población. Hecha desde 2000, con 252.000 M de personas al final. Falta desde 1492.
 
 ### Fase 3: fechas prioritarias
 - [ ] **1836**: repaso de la historia y del equilibrio.
