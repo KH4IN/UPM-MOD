@@ -92,3 +92,19 @@ Diario del bucle: fecha, tarea, qué se hizo, resultado de las pruebas y siguien
 - **Precios sin freno:** el índice medio pasa de 18 en 1493 a 3.934 en 1613, 54.704 en 1873, 123 en 2093 y 129 en 2250. Los bienes que aún no se fabrican se disparan: `electric_gear` llega a 4,8 millones en 1873.
 - **Freno provisional (rama `upm/freno-provisional`):** a petición de la revisión de la orquestadora, se limita a un valor ajustable el crecimiento mundial y el precio. El crecimiento positivo se multiplica por `1 - población mundial / ALICE_WORLD_POPULATION_LIMIT`, con 10.000 M por defecto. El precio no pasa de `ALICE_PRICE_CAP_MULTIPLIER` veces el coste base, con 10 por defecto. Con 0 se apaga cada uno. El formato de escenario cambia, y `upm101.bin` lo sustituye. **Todavía no se ha medido:** la regresión `r4` está en marcha. Los resultados de 2100 y 2250 se anotarán aquí.
 - **Comparación de tiempos:** los 52 minutos de 2000 a 2100 salen de una partida que empezaba en 2000 con 1.349 M de personas. La de 1492 llegaba a 2000 con unos 80.000 M, y por eso tardó 118,5. No miden lo mismo.
+- **`r4` en pausa:** se paró a las 22:44 del 2026-11-02, a petición de Ricardo para apagar el PC. Va por el 1 de enero de 1617, con el guardado `r4_pausa_1617.bin` en `Documents\Project Alice\saved games`. El guardado se cargó y jugó hasta 1618 sin cierres. Los CSV de `Victoria II + Alice dev` llegan completos a 1617 y siguen en 1618 al retomar.
+
+  | Dato | `r3`, sin freno | `r4`, con freno |
+  |---|---:|---:|
+  | Tramo de 1492 a 1600 | 22,8 min | 24,6 min |
+  | Pico de RAM en ese tramo | 666 MB | 624 MB |
+  | Población en 1613 | 360 M | 332 M |
+  | Índice de precios en 1613 | 3.934 | 64 |
+
+  Solo cubre 125 de 758 años: aún no dice nada de 2100 ni de 2250. El tope de precios ya se nota; el de población todavía casi no actúa. Para retomar:
+
+  ```powershell
+  & "$env:USERPROFILE\Desktop\UPM-MOD\herramientas\pruebas\alice_tramos.ps1" -Esc 'upm101.bin' -Marca 'r4_pausa_1617.bin' -Anos '1700,1800,1900,2000,2100,2200,2250' -Prefijo 'r4' -Stats
+  ```
+
+  El tiempo de 1600 a 1700 habrá que sumarlo: 4,6 minutos antes de la pausa más lo que marque el primer tramo.

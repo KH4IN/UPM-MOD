@@ -8,6 +8,6 @@ Expansión del **Universal Project Mod (UPM)** para Victoria 2, hecha con el per
 Este repositorio **no contiene archivos del juego** Victoria 2 ni ningún binario. Para jugar hace falta una copia propia del juego.
 
 ## Créditos
-- **Universal Project Mod:** su autor original.
+- **Universal Project Mod:** el autor original del Universal Project Mod.
 - **Project Alice:** schombert y los colaboradores de Project Alice (GPL-3.0).
 - **Victoria 2:** Paradox Interactive.

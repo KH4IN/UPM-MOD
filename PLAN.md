@@ -54,7 +54,7 @@ Cada fase deja el mod jugable, y no se empieza la siguiente sin pasar sus prueba
 ### Fase 0: preparación
 - [x] Repo del mod creado: `KH4IN/UPM-MOD`, público.
 - [x] Repo privado para los datos del UPM creado: `KH4IN/UPM-datos`.
-- [x] Subir a `UPM-datos` los archivos de texto del UPM (original y corregido, en ramas o carpetas separadas), con los créditos de su autor. Ni el juego base ni ningún binario. **No van a `UPM-MOD`**, que es público, porque contienen texto derivado del juego de Paradox. Ramas `upm/original`, `upm/corregido-v2game` y `upm/corregido-alice`, con 8.600 archivos. Falta poner el nombre del autor: `UPM.zip` no lo incluye.
+- [x] Subir a `UPM-datos` los archivos de texto del UPM (original y corregido, en ramas o carpetas separadas), con los créditos de su autor. Ni el juego base ni ningún binario. **No van a `UPM-MOD`**, que es público, porque contienen texto derivado del juego de Paradox. Ramas `upm/original`, `upm/corregido-v2game` y `upm/corregido-alice`, con 8.600 archivos.
 - [x] Repo de nuestra versión de Alice creado: `KH4IN/upm-alice`, privado y con licencia GPL-3.0.
 - [x] Subir a `upm-alice` el código de Project Alice (fork o espejo del original) con sus cambios. Están las 10 ramas `upm/*`. Los únicos binarios son las 2 copias de `LLVM-C.dll` y `LLVM-C.lib` que ya trae Alice; nuestros commits no tocan ninguno.
 - [x] Hacer nuestra versión de Alice (fork) y dejar listo su compilado en el PC de pruebas.
