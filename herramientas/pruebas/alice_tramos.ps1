@@ -7,7 +7,10 @@ Remove-Item -LiteralPath "$A\crash_stack.txt" -ErrorAction SilentlyContinue
 $carga = $Marca
 foreach ($y in ($Anos -split ',')) {
   $t = Get-Date
-  $arg = @($Esc, '-headless', '-speed', '6', '-load', $carga, '-until', $y)
+  # Sin -Marca, el primer tramo empieza en la fecha inicial del escenario.
+  $arg = @($Esc, '-headless', '-speed', '6')
+  if ($carga) { $arg += @('-load', $carga) }
+  $arg += @('-until', $y)
   if ($Stats) { $arg += '-stats' }
   $p = Start-Process -FilePath "$A\$Exe" -WorkingDirectory $A -ArgumentList $arg -PassThru
   $null = $p.Handle

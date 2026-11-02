@@ -63,9 +63,47 @@ def renombrar_andhra(raiz):
             f.write(b'ADH;Andhra;Andhra;Andhra;;Andhra;;;;;;;;;x\r\n')
 
 
+def fecha(texto):
+    return tuple(int(x) for x in texto.split(b'.'))[:3]
+
+
+def alargar_partidos(raiz):
+    """El ultimo partido de una ideologia que caduca en 2000 sigue hasta 2300, como los demas."""
+    n = 0
+    with open(os.path.join(raiz, 'common', 'countries.txt'), 'rb') as f:
+        listado = re.findall(rb'(?m)^\s*[A-Z][A-Z0-9]{2}\s*=\s*"?countries/([^"\r\n]+?)"?\s*$', f.read())
+    for nombre in listado:
+        p = os.path.join(raiz, 'common', 'countries', nombre.decode('cp1252'))
+        with open(p, 'rb') as f:
+            a = f.read()
+        # los comentarios se tapan sin mover nada, para que las posiciones valgan en el original
+        limpio = re.sub(rb'#[^\r\n]*', lambda m: b' ' * len(m.group()), a)
+        partidos = []
+        for m in re.finditer(rb'party\s*=\s*\{.*?\}', limpio, re.S):
+            ini = re.search(rb'start_date\s*=\s*([\d.]+)', m.group())
+            fin = re.search(rb'end_date\s*=\s*([\d.]+)', m.group())
+            ide = re.search(rb'ideology\s*=\s*(\w+)', m.group())
+            if ini and fin and ide:
+                partidos.append((fecha(ini.group(1)), fecha(fin.group(1)), ide.group(1), m.start() + fin.start(1), m.start() + fin.end(1)))
+        despues = {x[2] for x in partidos if x[0] <= (2001, 6, 1) < x[1]}
+        ultimos = {}
+        for x in partidos:
+            if x[0] <= (1999, 6, 1) < x[1] and x[2] not in despues and (x[2] not in ultimos or x[1] > ultimos[x[2]][1]):
+                ultimos[x[2]] = x
+        b = a
+        for x in sorted(ultimos.values(), key=lambda v: -v[3]):
+            b = b[:x[3]] + b'2300.1.1' + b[x[4]:]
+            n += 1
+        if b != a:
+            with open(p, 'wb') as f:
+                f.write(b)
+    print(n, 'partidos alargados hasta 2300')
+    return n
+
+
 def main():
     raiz = sys.argv[1]
-    total = 0
+    total = alargar_partidos(raiz)
     renombrar_andhra(raiz)
     for patron, buscar, poner in REGLAS:
         n = 0
