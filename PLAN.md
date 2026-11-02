@@ -33,7 +33,7 @@ Victoria 2 actualizado: **fiel a la historia real hasta hoy**, con un **futuro a
 | 1492 | **Historia real de 1492**: el mundo tal como era (Reyes Católicos y Granada, imperios precolombinos, otomanos, Ming…), con datos históricos. La era de los descubrimientos, jugable. |
 | Gráficos | Los genera Claude por código o IA. |
 | Equipo | El dueño diseña y prueba; Claude escribe y prueba. |
-| Código | El mod va en **`KH4IN/UPM-MOD`** (público). Nuestra versión de Alice va en **`KH4IN/upm-alice`** (privado), que conserva su licencia GPL-3.0. Las licencias de cada parte están en `LICENCIAS.md`. |
+| Código | El mod va en **`KH4IN/UPM-MOD`** (público). Nuestra versión de Alice va en **`KH4IN/upm-alice`** (privado), que conserva su licencia GPL-3.0. Los archivos de texto del UPM y nuestros cambios sobre ellos van en **`KH4IN/UPM-datos`** (privado). Las licencias de cada parte están en `LICENCIAS.md`. |
 | Nombre | Se decide más adelante. |
 
 ## 3. Lo que permite Alice
@@ -53,7 +53,8 @@ Cada fase deja el mod jugable, y no se empieza la siguiente sin pasar sus prueba
 
 ### Fase 0: preparación
 - [x] Repo del mod creado: `KH4IN/UPM-MOD`, público.
-- [ ] Subir a `UPM-MOD` los archivos de texto del UPM, con los créditos de su autor. Ni el juego base ni ningún binario.
+- [x] Repo privado para los datos del UPM creado: `KH4IN/UPM-datos`.
+- [ ] Subir a `UPM-datos` los archivos de texto del UPM (original y corregido, en ramas o carpetas separadas), con los créditos de su autor. Ni el juego base ni ningún binario. **No van a `UPM-MOD`**, que es público, porque contienen texto derivado del juego de Paradox.
 - [x] Repo de nuestra versión de Alice creado: `KH4IN/upm-alice`, privado y con licencia GPL-3.0.
 - [x] Subir a `upm-alice` el código de Project Alice (fork o espejo del original) con sus cambios. Están las 10 ramas `upm/*`. Los únicos binarios son las 2 copias de `LLVM-C.dll` y `LLVM-C.lib` que ya trae Alice; nuestros commits no tocan ninguno.
 - [x] Hacer nuestra versión de Alice (fork) y dejar listo su compilado en el PC de pruebas.
@@ -198,7 +199,8 @@ La sesión local ejecuta este plan **sola y en bucle**, corrigiendo sus propios 
 - **Repos:**
   - El mod va en `KH4IN/UPM-MOD`, que es **público**: no se sube nada que no deba verse.
   - Nunca se suben archivos del juego base ni binarios.
+  - Los archivos del UPM (eventos, decisiones, historia, textos, etc.) van solo en `KH4IN/UPM-datos`, que es privado.
   - El código de Alice va solo en `KH4IN/upm-alice`, que es privado. Si alguna vez se comparte la versión compilada, hay que dar también su código (GPL).
   - Nada del UPM ni de Alice va al repo `victoria-2-dlcs-fix`.
-  - **Subidas sin preguntar** a ramas de trabajo (no a `main`) en `upm-alice` y `UPM-MOD`, siempre cumpliendo las reglas anteriores. Fusionar en `main` o publicar versiones sí requiere permiso de Ricardo.
+  - **Subidas sin preguntar** a ramas de trabajo (no a `main`) en `upm-alice`, `UPM-datos` y `UPM-MOD`, siempre cumpliendo las reglas anteriores. Fusionar en `main` o publicar versiones sí requiere permiso de Ricardo.
 - No inventar resultados: si algo no se ha probado, se dice.
