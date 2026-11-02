@@ -55,14 +55,14 @@ Cada fase deja el mod jugable, y no se empieza la siguiente sin pasar sus prueba
 - [ ] Subir a `UPM-MOD` los archivos de texto del UPM, con los créditos de su autor. Ni el juego base ni ningún binario.
 - [x] Repo de nuestra versión de Alice creado: `KH4IN/upm-alice`, privado y con licencia GPL-3.0.
 - [ ] Subir a `upm-alice` el código de Project Alice (fork o espejo del original) con sus cambios. Solo código fuente, sin binarios.
-- [ ] Hacer nuestra versión de Alice (fork) y dejar listo su compilado en el PC de pruebas.
+- [x] Hacer nuestra versión de Alice (fork) y dejar listo su compilado en el PC de pruebas.
 - [ ] Traer las herramientas de prueba de la sesión local: arranque automático, partida a máxima velocidad, capturas y medición.
 - [ ] Flujo de trabajo: rama → cambio → compilado y prueba automática en el PC → fusionar.
 
 ### Fase 1: el UPM en Alice
 - [x] Ejecutar el UPM corregido en Alice 1.3.0, en una tercera copia (`Victoria II + Alice`). Arranca desde 1492 y desde 2000, en español y con su lanzador.
 - [x] Primera medición: en Alice avanzó **11 años en 3 minutos** con 0,9 GB de RAM. En `v2game.exe` fueron 4 años en 12 minutos con 2,3 GB. No es una comparación exacta.
-- [ ] **Quitar el tope de fechas.** Alice guarda la fecha en un número de 16 bits (`uint16_t` en `src/common_types/date_interface.hpp`): como mucho 65.535 días, unos 179 años. Con el UPM, la campaña de 1492 termina en 1671. Hay que pasarlo a 32 bits y revisar lo que dependa de ese tamaño (partidas guardadas, multijugador). Es **el primer cambio del motor**, y antes hay que instalar el compilador en el PC.
+- [x] **Quitar el tope de fechas.** Alice guardaba la fecha en un número de 16 bits: como mucho 65.535 días, unos 179 años, y la campaña de 1492 terminaba en 1671. Ahora son 32 bits (rama `upm/fecha-32-bits`). Probado sin ventana desde 1492 hasta 1698, con guardar y cargar. Falta probarlo en multijugador.
 - [ ] Adaptar **76 eventos** que tienen más opciones de las que admite Alice y **93 condiciones** que usan una palabra que no reconoce.
 - [ ] Revisar los **2.842 avisos** al cargar el UPM.
 - [ ] Iconos de la lista de ejércitos que desaparecen al cambiar el idioma con la partida abierta.
