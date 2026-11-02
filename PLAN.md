@@ -73,9 +73,10 @@ Cada fase deja el mod jugable, y no se empieza la siguiente sin pasar sus prueba
 - [ ] Comprobar el equilibrio, porque la economía de Alice es distinta. Medido en Alice de 1836 a 1936: la población crece de forma razonable, pero los precios no tienen tope y el PIB da saltos imposibles. La comparación con `v2game.exe` y el arreglo de fondo pasan a la fase 4a.
 
 ### Fase 2: estabilidad y topes
-- [ ] Terminar las correcciones del UPM: partidos que caducan en 2000, prefijos `n_` y claves perdidas.
+- [x] Terminar las correcciones del UPM: partidos que caducan en 2000, prefijos `n_` y claves perdidas.
 - [ ] Subir los topes que necesite la expansión. Primero los fáciles; los de un byte, cuando haga falta. Hechos: regimientos, barcos, ejércitos, fábricas, rutas y construcciones de tierra. Los de un byte siguen sin tocar.
-- [ ] Pruebas de estrés hasta 2250 con mucha población. Hecha desde 2000, con 252.000 M de personas al final. Falta desde 1492.
+- [x] Pruebas de estrés hasta 2250 con mucha población. Hechas desde 2000 y desde 1492, con 865.000 M de personas en 2250 y sin cierres.
+- [ ] Freno provisional de población y precios, ajustable y hasta la fase 4a. Hecho en el código; falta medirlo. Criterio: población de 2250 en decenas de miles de millones como mucho, precios acotados y el tramo de 2000 a 2100 sin pasar de 52 minutos.
 
 ### Fase 3: fechas prioritarias
 - [ ] **1836**: repaso de la historia y del equilibrio.

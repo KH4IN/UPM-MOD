@@ -57,3 +57,38 @@ Diario del bucle: fecha, tarea, qué se hizo, resultado de las pruebas y siguien
 - **Formato 46 con ventana:** la partida de 2250 se abre desde la lista, se elige China, se juega y sale la pantalla de fin de partida. Unos 3,2 GB de RAM con ventana.
 - **Sin probar:** una partida larga jugada a mano con guerras, el multijugador entre dos PC y la comparación con `v2game.exe`.
 - **Siguiente paso:** fase 2, correcciones del UPM. Al terminarla, partida completa de 1492 a 2250 como regresión y para medir las tablas.
+
+## 2026-11-02: fase 2, estabilidad y topes
+
+- **Correcciones del UPM:** ninguna de las 1.401 etiquetas se queda sin partidos en 2001. 50 archivos perdían una ideología en 2000 y ahora conservan su último partido hasta 2300, con una regla repetible en `upm_alice_fix.py`. No quedan usos de nombres antiguos de tecnologías ni claves del juego base perdidas.
+- **Regresión sin freno, de 1492 a 2250 (`r3`):** terminó sin cierres, con 628 minutos en total. Guardó y cargó en cada tramo.
+
+  | Tramo | Minutos | Pico de RAM (MB) |
+  |---|---:|---:|
+  | 1492 a 1600 | 22,8 | 666 |
+  | 1600 a 1700 | 28,7 | 680 |
+  | 1700 a 1800 | 52,1 | 731 |
+  | 1800 a 1900 | 79,1 | 768 |
+  | 1900 a 2000 | 101,7 | 782 |
+  | 2000 a 2100 | 118,5 | 789 |
+  | 2100 a 2200 | 145,0 | 788 |
+  | 2200 a 2250 | 80,0 | 789 |
+
+- **Tablas desde 1492, sin freno:**
+
+  | Tabla | Pico | Tope | % |
+  |---|---:|---:|---:|
+  | Regimientos | 65.000 | 65.000 | 100 |
+  | Ejércitos | 14.786 | 16.000 | 92 |
+  | Fábricas | 19.703 | 32.000 | 62 |
+  | Rutas comerciales | 93.831 | 160.000 | 59 |
+  | Pops | 118.409 | 300.000 | 40 |
+  | Núcleos | 5.882 | 16.000 | 37 |
+  | Barcos | 19.282 | 65.000 | 30 |
+
+- **Regimientos:** la construcción frena en 60.000, pero rebeldes y movilización agotan la reserva. La tabla está llena casi sin pausa desde 2126, y las construcciones de tierra llegan a 0 en 2222. No hay cierre, pero casi nadie puede reclutar. En 2201 hay 28.463 regimientos rebeldes y 2.998 movilizados, cifras casi fijas durante 3 años. No se ha investigado por qué esos rebeldes no desaparecen.
+- **Ejércitos:** el 92 % era peligroso, porque esa tabla no tiene protección si se llena. Pasa a 32.000 filas, sin cambiar el formato: la partida de 2200 carga y sigue hasta 2204 sin cierres.
+- **Población sin freno:** 212 M en 1501, 5.450 M en 1833, 82.160 M en 2001, un máximo de 912.490 M en 2211 y 865.475 M en 2250.
+- **Precios sin freno:** el índice medio pasa de 18 en 1493 a 3.934 en 1613, 54.704 en 1873, 123 en 2093 y 129 en 2250. Los bienes que aún no se fabrican se disparan: `electric_gear` llega a 4,8 millones en 1873.
+- **Freno provisional (rama `upm/freno-provisional`):** a petición de la revisión de la orquestadora, se limita a un valor ajustable el crecimiento mundial y el precio. El crecimiento positivo se multiplica por `1 - población mundial / ALICE_WORLD_POPULATION_LIMIT`, con 10.000 M por defecto. El precio no pasa de `ALICE_PRICE_CAP_MULTIPLIER` veces el coste base, con 10 por defecto. Con 0 se apaga cada uno. El formato de escenario cambia, y `upm101.bin` lo sustituye. **Todavía no se ha medido:** la regresión `r4` está en marcha. Los resultados de 2100 y 2250 se anotarán aquí.
+- **Comparación de tiempos:** los 52 minutos de 2000 a 2100 salen de una partida que empezaba en 2000 con 1.349 M de personas. La de 1492 llegaba a 2000 con unos 80.000 M, y por eso tardó 118,5. No miden lo mismo.
