@@ -20,4 +20,13 @@ Diario del bucle: fecha, tarea, qué se hizo, resultado de las pruebas y siguien
 - **Erratas de UPM:** `herramientas/upm_alice_fix.py` aplica 677 cambios en la copia de pruebas. Los errores al cargar bajan de 2.842 a 2.073. De ellos, 1.626 son quitar reclamaciones inexistentes.
 - **Pruebas sin ventana:** nuevas opciones `-load` y `-until`. Ciclo 2000 → 2003 → guardar → cargar → 2005 sin errores.
 - **Campaña desde 1492:** en 75 minutos llegó a 1698, 27 años más allá del antiguo final de 1671, sin cierres. Memoria entre 591 y 658 MB. La cerró el límite de tiempo de la prueba, no un fallo.
-- **Pendiente de resultado:** partida desde 2000 hasta 2250.
+- **Partida desde 2000:** se cerró con código 3 hacia 2116, a los 80 minutos, coincidiendo con la creación de un escenario. Causa aún desconocida. El motor ya escribe `crash_stack.txt` al cerrarse de golpe, y la prueba se repite por tramos guardados.
+- **Comprobación fallida:** una prueba de guardar y cargar arrancó en 1492 porque `Alice.exe` era anterior a `-load`. Se descartó y hoy ambos ejecutables son la versión nueva.
+- **Avisos de UPM:** de 2.073 a 1.798. Reglas nuevas en `upm_alice_fix.py` y `upm_alice_avisos.py`:
+  - 49 países con la alfabetización escrita con coma, que se leía como 0.
+  - 88 condiciones sobre culturas, países y regiones inexistentes, que Alice tiraba y dejaban la condición siempre cierta. Pasan a `always = no`, salvo tres grupos culturales con un país por error (EE. UU., Francia y Alemania), que pasan a su grupo real.
+  - 10 provincias con fechas de solo un año.
+  - Andhra pasa de `AND` a `ADH`, porque su etiqueta chocaba con la condición `AND` y su nombre con la palabra «and».
+- **Evento de 84 opciones:** probado con ventana. La lista se desplaza hasta el final y la opción 82 cambió la religión del país a `iberian_pagan`, leída por consola.
+- **Iconos de la lista:** reproducido. En `es-ES/alice.csv` hay 753 textos vacíos que pisaban el inglés cargado antes, entre ellos `ol_unit_standing_text`. El cargador ya no pisa un texto con una entrada vacía. Comprobado en español con la lista de unidades.
+- **Pendiente de resultado:** partida por tramos desde 2000 hasta 2250.
