@@ -32,7 +32,7 @@ Victoria 2 actualizado: **fiel a la historia real hasta hoy**, con un **futuro a
 | Fechas prioritarias | **1836**, **1492** y **actualidad (2026)**. |
 | Gráficos | Los genera Claude por código o IA. |
 | Equipo | El dueño diseña y prueba; Claude escribe y prueba. |
-| Código | El mod va en **`KH4IN/UPM-MOD`** (público). Nuestra versión de Alice va en un **repo aparte** (por crear) que conserva su licencia GPL-3.0. Las licencias de cada parte están en `LICENCIAS.md`. |
+| Código | El mod va en **`KH4IN/UPM-MOD`** (público). Nuestra versión de Alice va en **`KH4IN/upm-alice`** (privado), que conserva su licencia GPL-3.0. Las licencias de cada parte están en `LICENCIAS.md`. |
 | Nombre | Se decide más adelante. |
 
 ## 3. Lo que permite Alice
@@ -53,7 +53,8 @@ Cada fase deja el mod jugable, y no se empieza la siguiente sin pasar sus prueba
 ### Fase 0: preparación
 - [x] Repo del mod creado: `KH4IN/UPM-MOD`, público.
 - [ ] Subir a `UPM-MOD` los archivos de texto del UPM, con los créditos de su autor. Ni el juego base ni ningún binario.
-- [ ] Crear el repo aparte para nuestra versión de Alice (GPL-3.0). Lo crea Ricardo.
+- [x] Repo de nuestra versión de Alice creado: `KH4IN/upm-alice`, privado y con licencia GPL-3.0.
+- [ ] Subir a `upm-alice` el código de Project Alice (fork o espejo del original) con sus cambios. Solo código fuente, sin binarios.
 - [ ] Hacer nuestra versión de Alice (fork) y dejar listo su compilado en el PC de pruebas.
 - [ ] Traer las herramientas de prueba de la sesión local: arranque automático, partida a máxima velocidad, capturas y medición.
 - [ ] Flujo de trabajo: rama → cambio → compilado y prueba automática en el PC → fusionar.
@@ -132,7 +133,7 @@ Se reprograma la economía en el código C++ de nuestra versión de Alice, por p
 ## 5. Cómo trabajamos
 
 - **Diseño:** el dueño decide y valida en partida.
-- **Sesión en la nube:** scripts, textos y gráficos en `UPM-MOD`, y código C++ en el repo de Alice.
+- **Sesión en la nube:** scripts, textos y gráficos en `UPM-MOD`, y código C++ en `upm-alice`.
 - **Sesión local (PC con Windows):** compila Alice, ejecuta el juego, lanza las pruebas automáticas y da el visto bueno.
 - **Reglas:** siempre sobre copias, con copia de seguridad. Nunca se mezclan el juego base, el UPM original y la expansión.
 
@@ -196,7 +197,7 @@ La sesión local ejecuta este plan **sola y en bucle**, corrigiendo sus propios 
 - **Repos:**
   - El mod va en `KH4IN/UPM-MOD`, que es **público**: no se sube nada que no deba verse.
   - Nunca se suben archivos del juego base ni binarios.
-  - El código de Alice va solo en su repo aparte; mientras no exista, se queda en git local.
+  - El código de Alice va solo en `KH4IN/upm-alice`, que es privado. Si alguna vez se comparte la versión compilada, hay que dar también su código (GPL).
   - Nada del UPM ni de Alice va al repo `victoria-2-dlcs-fix`.
   - Subir a GitHub sigue siendo un punto de control: se avisa a Ricardo antes de cada subida.
 - No inventar resultados: si algo no se ha probado, se dice.
