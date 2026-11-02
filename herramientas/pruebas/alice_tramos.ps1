@@ -1,4 +1,4 @@
-param([string]$Esc = 'upm97.bin', [string]$Marca = 'bookmark_aaaaaaaagkoiacdj-2000-1-1.bin', [int[]]$Anos = @(2100, 2110, 2115, 2120, 2130, 2150, 2200, 2250), [string]$Exe = 'AliceT.exe', [int]$Max = 150, [string]$Prefijo = 'tramo')
+param([string]$Esc = 'upm97.bin', [string]$Marca = 'bookmark_aaaaaaaagkoiacdj-2000-1-1.bin', [int[]]$Anos = @(2100, 2110, 2115, 2120, 2130, 2150, 2200, 2250), [string]$Exe = 'AliceT.exe', [int]$Max = 150, [string]$Prefijo = 'tramo', [switch]$Stats)
 # Juega por tramos sin ventana, a baja prioridad, y guarda cada tramo para poder volver cerca de un cierre.
 $s = $PSScriptRoot
 $A = "$env:USERPROFILE\Desktop\Victoria II + Alice dev"
@@ -7,7 +7,10 @@ Remove-Item -LiteralPath "$A\crash_stack.txt" -ErrorAction SilentlyContinue
 $carga = $Marca
 foreach ($y in $Anos) {
   $t = Get-Date
-  $p = Start-Process -FilePath "$A\$Exe" -WorkingDirectory $A -ArgumentList $Esc, '-headless', '-speed', '6', '-load', $carga, '-until', $y -PassThru
+  $arg = @($Esc, '-headless', '-speed', '6', '-load', $carga, '-until', $y)
+  if ($Stats) { $arg += '-stats' }
+  $p = Start-Process -FilePath "$A\$Exe" -WorkingDirectory $A -ArgumentList $arg -PassThru
+  $null = $p.Handle
   Start-Sleep 3; try { $p.PriorityClass = 'BelowNormal' } catch {}
   $pico = 0
   while (-not $p.HasExited -and ((Get-Date) - $t).TotalMinutes -lt $Max) {

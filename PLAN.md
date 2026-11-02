@@ -64,10 +64,10 @@ Cada fase deja el mod jugable, y no se empieza la siguiente sin pasar sus prueba
 - [x] Primera medición: en Alice avanzó **11 años en 3 minutos** con 0,9 GB de RAM. En `v2game.exe` fueron 4 años en 12 minutos con 2,3 GB. No es una comparación exacta.
 - [x] **Quitar el tope de fechas.** Alice guardaba la fecha en un número de 16 bits: como mucho 65.535 días, unos 179 años, y la campaña de 1492 terminaba en 1671. Ahora son 32 bits (rama `upm/fecha-32-bits`). Probado sin ventana desde 1492 hasta 1698, con guardar y cargar. Falta probarlo en multijugador.
 - [x] Adaptar **76 eventos** que tienen más opciones de las que admite Alice y **93 condiciones** que usan una palabra que no reconoce. Los 76 avisos eran un solo evento de 84 opciones: el límite sube a 96 y se comprobó en partida eligiendo la opción 82.
-- [x] Revisar los **2.842 avisos** al cargar el UPM. Quedan 1.798: 1.626 quitan reclamaciones que no existen, 130 usan `FROM` donde no hay país de origen y 42 son casos sueltos, entre ellos 6 garantías y 3 relaciones de vasallaje que no se cargan. Las reglas están en `herramientas/`.
+- [x] Revisar los **2.842 avisos** al cargar el UPM. Quedan 1.797: 1.626 quitan reclamaciones que no existen, 130 usan `FROM` donde no hay país de origen y 41 son casos sueltos, entre ellos 6 garantías y 3 relaciones de vasallaje que no se cargan. Las reglas están en `herramientas/`.
 - [x] Iconos de la lista de ejércitos que desaparecen al cambiar el idioma con la partida abierta. No era el cambio de idioma: la traducción española de Alice tenía 753 textos vacíos que borraban el inglés.
 - [ ] Probar una partida larga jugando, guardar y cargar, el multijugador y más de 15 años seguidos desde 2000.
-- [ ] Comprobar el equilibrio, porque la economía de Alice es distinta.
+- [ ] Comprobar el equilibrio, porque la economía de Alice es distinta. Medido en Alice de 1836 a 1936: la población crece de forma razonable, pero los precios no tienen tope y el PIB da saltos imposibles. Falta compararlo con `v2game.exe`. El arreglo de fondo pertenece a la fase 4a.
 
 ### Fase 2: estabilidad y topes
 - [ ] Terminar las correcciones del UPM: partidos que caducan en 2000, prefijos `n_` y claves perdidas.

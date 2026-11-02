@@ -12,6 +12,7 @@ Cada entrada indica la opción elegida, el motivo y las alternativas. Ricardo pu
 | 2026-11-02 | Andhra pasa de la etiqueta `AND` a `ADH` | Alice la confunde con la condición `AND`, y son pocos archivos | Dejarla sin arreglar; enseñar a Alice a distinguirlas |
 | 2026-11-02 | Una condición sobre algo inexistente pasa a `always = no` | Siempre es falsa; Alice la tiraba y la condición de alrededor se cumplía siempre | Borrar el evento entero |
 | 2026-11-02 | Los textos sin traducir se ven en inglés | Es el arreglo mínimo y ya no se pierde información | Traducir ya los 1.345 textos que faltan, previsto para la fase 6 |
+| 2026-11-02 | Los precios sin tope no se corrigen en la fase 1 | Limitarlos cambia toda la economía, y eso lo rehace la fase 4a | Poner ya un tope provisional |
 | 2026-11-02 | Las 6 garantías de `Guarantees.txt` siguen sin cargarse | Alice no entiende esa clave y su efecto es pequeño | Añadirla al motor |
 | 2026-11-02 | Máximo de 96 opciones por evento | UPM usa 84 y la lista se puede desplazar | Partir el evento en varios |
 | 2026-11-02 | La fecha pasa a `int32_t` con signo | Las restas de fechas siguen dando negativos, como antes | `uint32_t`, que haría que esas restas dieran números enormes |
