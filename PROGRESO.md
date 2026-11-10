@@ -108,3 +108,29 @@ Diario del bucle: fecha, tarea, qué se hizo, resultado de las pruebas y siguien
   ```
 
   El tiempo de 1600 a 1700 habrá que sumarlo: 4,6 minutos antes de la pausa más lo que marque el primer tramo.
+- **`r4` retomada:** el 2026-11-10 a las 20:54, desde `r4_pausa_1617.bin`.
+
+## 2026-11-10: preparación de la fase 3, auditoría de las fechas
+
+Hecha con `herramientas/upm_fecha.py` mientras corre `r4`. Solo lee archivos: no cambia el mod. La población de los archivos cuenta 1 de cada 4 personas, como en Victoria 2, así que las cifras en personas son 4 veces las de los archivos. Se comprueba con 2000: 1.342 M en archivos, 5.370 M de personas.
+
+| Fecha | Países | Provincias con dueño | Personas | Capitales ajenas | Provincias pobladas sin dueño |
+|---|---:|---:|---:|---:|---:|
+| 1492 | 486 | 2.034 | 914 M | 113 | 681 |
+| 1579 | 374 | 2.138 | 914 M | 96 | 577 |
+| 1618 | 349 | 2.180 | 1.027 M | 95 | 535 |
+| 1701 | 293 | 2.356 | 1.027 M | 72 | 359 |
+| 1776 | 262 | 2.431 | 1.046 M | 57 | 284 |
+| 1803 | 232 | 2.455 | 1.046 M | 55 | 260 |
+| 1836 | 239 | 2.505 | 1.046 M | 56 | 210 |
+| 1900 | 120 | 2.698 | 2.327 M | 22 | 17 |
+| 1936 | 121 | 2.714 | 2.327 M | 14 | 1 |
+| 1945 | 117 | 2.714 | 2.327 M | 16 | 1 |
+| 2000 | 200 | 2.715 | 5.369 M | 8 | 0 |
+
+- **La población se comparte entre fechas:** solo hay 5 juegos de población para 11 fechas. 1492 usa la misma que 1579, y 1900 la misma que 1936 y 1945.
+- **1492 tiene el doble de gente de la cuenta:** 914 M, frente a los 450 a 500 M que suelen estimarse para 1500. Por países tampoco cuadra: Ming 336 M e Inglaterra 14,8 M. Las cifras históricas de referencia están sin contrastar con fuentes; es trabajo de la fase 3.
+- **Capitales ajenas:** en 1492, 113 países tienen como capital una provincia que no es suya, por ejemplo la del Yuan del Norte, que es Pekín, de los Ming. No se ha mirado qué hace Alice con ellas.
+- **Gobiernos de 1492:** Inglaterra, Lituania, Hungría, Polonia, Suecia y Aragón usan `prussian_constitutionalism`, que hace de monarquía con estamentos.
+- **1836 frente al juego base:** 864 provincias con otro dueño. La mayoría son decisiones del UPM: China unida como `QIN`, Japón repartido entre el shogunato y 4 dominios, Egipto y Persia con otra etiqueta. Población del UPM frente al base: Estados Unidos +68 %, Brasil +35 %, Prusia +32 %. El base da a Estados Unidos 16 M de personas, cerca de los 15 M reales de 1836; el UPM le da 27 M.
+- **Errores sueltos:** el dominio de Chōshū (`CHO`) tiene de cultura principal `dummy`. Las provincias 1396 y 1397 tienen dos archivos en el juego base, uno en `asia` y otro en `indonesia`.
