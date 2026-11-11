@@ -90,7 +90,7 @@ Diario del bucle: fecha, tarea, qué se hizo, resultado de las pruebas y siguien
 - **Ejércitos:** el 92 % era peligroso, porque esa tabla no tiene protección si se llena. Pasa a 32.000 filas, sin cambiar el formato: la partida de 2200 carga y sigue hasta 2204 sin cierres.
 - **Población sin freno:** 212 M en 1501, 5.450 M en 1833, 82.160 M en 2001, un máximo de 912.490 M en 2211 y 865.475 M en 2250.
 - **Precios sin freno:** el índice medio pasa de 18 en 1493 a 3.934 en 1613, 54.704 en 1873, 123 en 2093 y 129 en 2250. Los bienes que aún no se fabrican se disparan: `electric_gear` llega a 4,8 millones en 1873.
-- **Freno provisional (rama `upm/freno-provisional`):** a petición de la revisión de la orquestadora, se limita a un valor ajustable el crecimiento mundial y el precio. El crecimiento positivo se multiplica por `1 - población mundial / ALICE_WORLD_POPULATION_LIMIT`, con 10.000 M por defecto. El precio no pasa de `ALICE_PRICE_CAP_MULTIPLIER` veces el coste base, con 10 por defecto. Con 0 se apaga cada uno. El formato de escenario cambia, y `upm101.bin` lo sustituye. **Todavía no se ha medido:** la regresión `r4` está en marcha. Los resultados de 2100 y 2250 se anotarán aquí.
+- **Freno provisional (rama `upm/freno-provisional`):** a petición de la revisión de la orquestadora, se limita a un valor ajustable el crecimiento mundial y el precio. El crecimiento positivo se multiplica por `1 - población mundial / ALICE_WORLD_POPULATION_LIMIT`, con 10.000 M por defecto. El precio no pasa de `ALICE_PRICE_CAP_MULTIPLIER` veces el coste base, con 10 por defecto. Con 0 se apaga cada uno. El formato de escenario cambia, y `upm101.bin` lo sustituye. Medido con la regresión `r4`: ver más abajo.
 - **Comparación de tiempos:** los 52 minutos de 2000 a 2100 salen de una partida que empezaba en 2000 con 1.349 M de personas. La de 1492 llegaba a 2000 con unos 80.000 M, y por eso tardó 118,5. No miden lo mismo.
 - **`r4` en pausa:** se paró a las 22:44 del 2026-11-02, a petición de Ricardo para apagar el PC. Va por el 1 de enero de 1617, con el guardado `r4_pausa_1617.bin` en `Documents\Project Alice\saved games`. El guardado se cargó y jugó hasta 1618 sin cierres. Los CSV de `Victoria II + Alice dev` llegan completos a 1617 y siguen en 1618 al retomar.
 
@@ -109,6 +109,45 @@ Diario del bucle: fecha, tarea, qué se hizo, resultado de las pruebas y siguien
 
   El tiempo de 1600 a 1700 habrá que sumarlo: 4,6 minutos antes de la pausa más lo que marque el primer tramo.
 - **`r4` retomada:** el 2026-11-10 a las 20:54, desde `r4_pausa_1617.bin`.
+
+## 2026-11-11: cierre de la fase 2, regresión con freno (`r4`)
+
+`r4` terminó a las 04:38 sin cierres, de 1492 a 2250, guardando y cargando en cada tramo. Escenario `upm101.bin`, freno con los valores por defecto. Los CSV quedan en `Victoria II + Alice dev` como `*_stats_r4.csv`, y la tabla sale de un script de comparación de la sesión local.
+
+| Tramo | `r3`, sin freno (min) | `r4`, con freno (min) | Pico de RAM `r4` (MB) |
+|---|---:|---:|---:|
+| 1492 a 1600 | 22,8 | 24,6 | 624 |
+| 1600 a 1700 | 28,7 | 34,0 (4,6 + 29,4, por la pausa) | 688 |
+| 1700 a 1800 | 52,1 | 50,4 | 656 |
+| 1800 a 1900 | 79,1 | 72,3 | 752 |
+| 1900 a 2000 | 101,7 | 86,8 | 773 |
+| 2000 a 2100 | 118,5 | 90,4 | 758 |
+| 2100 a 2200 | 145,0 | 89,8 | 764 |
+| 2200 a 2250 | 80,0 | 44,7 | 683 |
+| **Total** | **628** | **493** | **773** |
+
+Población en cifras de archivo (las personas son 4 veces más) e índice medio de precios por mercado:
+
+| Año | Población `r3` | Población `r4` | Índice `r3` | Índice `r4` |
+|---|---:|---:|---:|---:|
+| 1600 | 308 M | 292 M | 4.152 | 70 |
+| 1700 | 1.020 M | 825 M | 433 | 19 |
+| 1800 | 3.515 M | 2.309 M | 8 | 14 |
+| 1900 | 13.536 M | 5.298 M | 1.567 | 18 |
+| 2000 | 80.540 M | 8.023 M | 80 | 11 |
+| 2100 | 482.217 M | 9.147 M | 134 | 11 |
+| 2200 | 909.128 M | 9.466 M | 128 | 10 |
+| 2250 | 865.475 M | 9.575 M | 129 | 10 |
+
+- **Población:** se acerca al tope sin pasarlo: 9.575 M en 2250, unos 38.000 M de personas. Cumple el criterio de «decenas de miles de millones como mucho». Sigue siendo mucho más que la historia real (2000 tiene 8.023 M en archivos, unos 32.000 M de personas, frente a unos 6.100 M reales): eso es trabajo de la fase 4a, y el tope se puede bajar en `defines.lua`.
+- **Precios:** el índice máximo es 85,5 (en 1570), frente a 72.899 sin freno. El precio más alto de la partida es 1.100 (`aeroplanes` en 1510, diez veces su coste). Los bienes que aún no se fabrican ya no se disparan: `electric_gear` no pasa de 160.
+- **Tablas, picos desde 1492:** regimientos 40.762 de 65.000 (63 %; sin freno se llenaba desde 2126), fábricas 19.325 de 32.000 (60 %), rutas 87.085 de 160.000 (54 %), núcleos 34 %, barcos 33 %, ejércitos 7.236 de 32.000 (23 %), pops 62.110 de 300.000 (21 %), guerras 20 de 100.
+- **Regimientos rebeldes:** pico de 3.063 (sin freno, 28.463 en 2201) y 1.217 en 2250. Ya no bloquean el reclutamiento, así que no se investiga más ahora.
+- **Guerras:** la IA casi no hace guerras: nunca más de 20 a la vez y entre 1 y 8 en los años redondos. Por eso la partida larga en automático necesita guerras forzadas (siguiente punto).
+- **Tramo de 2000 a 2100 desde el bookmark de 2000:** 47,6 minutos y 723 MB de pico, frente a 52 sin freno. Población de 1.347 M en 2001 a 4.557 M en 2100. Cumple el criterio. Los CSV quedan como `*_stats_f2000.csv`.
+- **Criterio del freno cumplido:** población de 2250 en decenas de miles de millones de personas como mucho, precios acotados y menos de 52 minutos de 2000 a 2100. La casilla queda marcada en `PLAN.md`.
+- **Fase 2 cerrada, salvo los topes de un byte**, que se suben cuando la expansión los necesite. Sin probar todavía: partida larga con guerras, multijugador entre dos PC y comparación con `v2game.exe`.
+- **Siguiente paso:** la partida larga en automático con guerras forzadas (fase 1, punto pendiente) y después la fase 3, empezando por 1836.
 
 ## 2026-11-10: preparación de la fase 3, auditoría de las fechas
 

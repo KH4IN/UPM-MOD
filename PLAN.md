@@ -76,7 +76,7 @@ Cada fase deja el mod jugable, y no se empieza la siguiente sin pasar sus prueba
 - [x] Terminar las correcciones del UPM: partidos que caducan en 2000, prefijos `n_` y claves perdidas.
 - [ ] Subir los topes que necesite la expansión. Primero los fáciles; los de un byte, cuando haga falta. Hechos: regimientos, barcos, ejércitos, fábricas, rutas y construcciones de tierra. Los de un byte siguen sin tocar.
 - [x] Pruebas de estrés hasta 2250 con mucha población. Hechas desde 2000 y desde 1492, con 865.000 M de personas en 2250 y sin cierres.
-- [ ] Freno provisional de población y precios, ajustable y hasta la fase 4a. Hecho en el código; falta medirlo. Criterio: población de 2250 en decenas de miles de millones como mucho, precios acotados y el tramo de 2000 a 2100 sin pasar de 52 minutos.
+- [x] Freno provisional de población y precios, ajustable y hasta la fase 4a. Criterio: población de 2250 en decenas de miles de millones como mucho, precios acotados y el tramo de 2000 a 2100 sin pasar de 52 minutos. Medido: 9.575 M en archivos en 2250 (unos 38.000 M de personas), índice de precios máximo 85,5 y 47,6 minutos de 2000 a 2100.
 
 ### Fase 3: fechas prioritarias
 - [ ] **1836**: repaso de la historia y del equilibrio.
