@@ -149,6 +149,18 @@ Población en cifras de archivo (las personas son 4 veces más) e índice medio 
 - **Fase 2 cerrada, salvo los topes de un byte**, que se suben cuando la expansión los necesite. Sin probar todavía: partida larga con guerras, multijugador entre dos PC y comparación con `v2game.exe`.
 - **Siguiente paso:** la partida larga en automático con guerras forzadas (fase 1, punto pendiente) y después la fase 3, empezando por 1836.
 
+## 2026-11-11: partida larga en automático con guerras forzadas (`g1`)
+
+- **Opción `-wars N`** (rama `upm/guerras-prueba` de `upm-alice`): cada 1 de enero, N países de la IA en paz atacan a un vecino con un casus belli del juego. No declara si ya hay 60 guerras, porque la tabla admite 100. Prueba de 1836 a 1841 con 5 al año: declaró 5, 5, 5, 5 y 4, sin cierres. Hubo 31, 21, 22, 21 y 18 guerras a la vez, frente a 26, 12, 18, 12 y 7 sin la opción.
+- **`g1`, de 1836 a 2026 con 5 guerras al año:** sin cierres hasta la pausa. Tramos de 25 años: 6,7, 7,8, 8,7, 10,3 y 12,3 minutos hasta 1961, con un pico de 689 MB.
+- **En pausa** el 2026-11-11 a las 06:23, porque Ricardo apaga el PC. Va por el 1 de enero de 1966, con el guardado `g1_pausa_1966.bin` en `Documents\Project Alice\saved games`, que se cargó y jugó hasta 1967 sin cierres. Los CSV vivos de `Victoria II + Alice dev` son de `g1` y siguen al retomar. Para retomar:
+
+  ```powershell
+  & "$env:USERPROFILE\Desktop\UPM-MOD\herramientas\pruebas\alice_tramos.ps1" -Esc 'upm101.bin' -Marca 'g1_pausa_1966.bin' -Anos '1986,2011,2026' -Prefijo 'g1' -Stats -Guerras 5
+  ```
+
+- **Falta:** terminar hasta 2026, analizar las guerras (cambios de fronteras, regimientos, rebeldes) y las capturas con ventana de la partida final.
+
 ## 2026-11-10: preparación de la fase 3, auditoría de las fechas
 
 Hecha con `herramientas/upm_fecha.py` mientras corre `r4`. Solo lee archivos: no cambia el mod. La población de los archivos cuenta 1 de cada 4 personas, como en Victoria 2, así que las cifras en personas son 4 veces las de los archivos. Se comprueba con 2000: 1.342 M en archivos, 5.370 M de personas.

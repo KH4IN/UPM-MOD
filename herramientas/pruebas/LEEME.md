@@ -16,7 +16,7 @@ Pruebas automáticas de nuestra versión de Alice sobre la copia `Victoria II + 
 |---|---|
 | `alice_head.ps1` | Juega a baja prioridad y mide memoria y fecha. |
 | `alice_ciclo.ps1` | Carga, juega, guarda, vuelve a cargar y sigue. |
-| `alice_tramos.ps1` | Juega hasta varios años y guarda cada tramo para volver cerca de un cierre. Si el motor se cierra, muestra `crash_stack.txt`. |
+| `alice_tramos.ps1` | Juega hasta varios años y guarda cada tramo para volver cerca de un cierre. Si el motor se cierra, muestra `crash_stack.txt`. Con `-Guerras N`, cada 1 de enero N países de la IA en paz atacan a un vecino (opción `-wars` del motor, rama `upm/guerras-prueba`); cada tanda queda en `Documentos\Project Alice\data_dumps\console_log.txt`. |
 | `alice_arranque.ps1` | Repite muchos arranques seguidos y cuenta los que fallan. |
 | `savedate.py` | Lee la versión y la fecha de las partidas guardadas. |
 
