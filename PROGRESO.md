@@ -159,7 +159,26 @@ Población en cifras de archivo (las personas son 4 veces más) e índice medio 
   & "$env:USERPROFILE\Desktop\UPM-MOD\herramientas\pruebas\alice_tramos.ps1" -Esc 'upm101.bin' -Marca 'g1_pausa_1966.bin' -Anos '1986,2011,2026' -Prefijo 'g1' -Stats -Guerras 5
   ```
 
-- **Falta:** terminar hasta 2026, analizar las guerras (cambios de fronteras, regimientos, rebeldes) y las capturas con ventana de la partida final.
+- **Retomada y terminada** el 2026-11-11: llega al 1 de enero de 2026 sin cierres. Tramos desde 1966: 12,7, 17,5 y 11,7 minutos, con un pico de 685 MB. Se pidieron 5 guerras al año y salieron 309 en 190 años: 136 hasta 1886, 82 hasta 1936, 60 hasta 1986 y 31 hasta 2026. En 50 años no encontró ninguna pareja válida y solo en 16 llegó a las 5. No se ha mirado qué condición las descarta.
+- **Referencia sin guerras forzadas (`g2`):** misma partida sin `-wars`, también sin cierres: 12,8, 16,8, 26,1 y 29,8 minutos por tramo, pico de 756 MB. Resumen con `herramientas/pruebas/alice_guerras.py`:
+
+  | Dato, de 1837 a 2026 | `g2`, sin forzar | `g1`, con `-wars 5` |
+  |---|---:|---:|
+  | Guerras a la vez, media | 3,8 | 7,9 |
+  | Países en guerra, media por año | 23,5 | 36,5 |
+  | Participantes, media | 26,1 | 40,5 |
+  | Batallas de tierra a la vez, media y pico | 1,6 y 15 | 2,9 y 25 |
+  | Países en 2026 (234 al empezar) | 123 | 86 |
+  | Países que desaparecen y aparecen | 126 y 15 | 168 y 20 |
+  | Regimientos en 2026 | 17.580 | 12.518 |
+  | Regimientos rebeldes, mayor valor en los años revisados | 302 | 219 |
+  | Población en 2026, en archivos | 3.000 M | 3.460 M |
+
+  Las tablas de guerra quedan lejos del tope: 31 guerras de 100, 113 participantes de 3.000 y 31 objetivos de 1.000.
+- **Guardar y cargar:** `g1` cargó 8 guardados de tramo y el de la pausa; `g2`, 3.
+- **Con ventana:** `g1_2026.bin` se abre desde la lista, se elige España, se entra en la partida, se abren las pestañas de diplomacia y de guerras, y el juego avanza del 1 al 12 de enero con una batalla. 6 capturas en `Victoria II + Alice dev\capturas_g1`; no van al repo.
+- **Lo que no prueba:** todo lo jugó la IA. Nadie ha dirigido una guerra a mano, ni se ha probado el multijugador entre dos PC.
+- **Realismo, para la fase 4a:** la partida sin forzar acaba en 2026 con 3.000 M en archivos, unos 12.000 M de personas, frente a unos 8.200 M reales; En la partida con guerras, España llega a 111 M en archivos y posee una gran parte de África. Son datos de partida para comparar, no algo que arreglar ahora.
 
 ## 2026-11-10: preparación de la fase 3, auditoría de las fechas
 

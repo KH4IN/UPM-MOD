@@ -69,7 +69,7 @@ Cada fase deja el mod jugable, y no se empieza la siguiente sin pasar sus prueba
 - [x] Revisar los **2.842 avisos** al cargar el UPM. Quedan 1.797: 1.626 quitan reclamaciones que no existen, 130 usan `FROM` donde no hay país de origen y 41 son casos sueltos, entre ellos 6 garantías y 3 relaciones de vasallaje que no se cargan. Las reglas están en `herramientas/`.
 - [x] Iconos de la lista de ejércitos que desaparecen al cambiar el idioma con la partida abierta. No era el cambio de idioma: la traducción española de Alice tenía 753 textos vacíos que borraban el inglés.
 - [x] Probar guardar y cargar, el multijugador y más de 15 años seguidos desde 2000. Partida automática de 2000 a 2250 sin cierres, guardando y cargando en cada tramo. Multijugador en este PC, seis meses sin desincronización. La partida de 2250 se abre y se termina con ventana.
-- [ ] Probar una partida larga **en automático** (la hace la sesión local, no Ricardo): un país controlado por la IA, con guerras forzadas, guardando y cargando partidas y con capturas.
+- [x] Probar una partida larga **en automático** (la hace la sesión local, no Ricardo): un país controlado por la IA, con guerras forzadas, guardando y cargando partidas y con capturas. Hecha de 1836 a 2026 con la opción `-wars`: 309 guerras forzadas, sin cierres, y la partida final se abre y se juega con ventana.
 - [ ] Comprobar el equilibrio, porque la economía de Alice es distinta. Medido en Alice de 1836 a 1936: la población crece de forma razonable, pero los precios no tienen tope y el PIB da saltos imposibles. La comparación con `v2game.exe` y el arreglo de fondo pasan a la fase 4a.
 
 ### Fase 2: estabilidad y topes

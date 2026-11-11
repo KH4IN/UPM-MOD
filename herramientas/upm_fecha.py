@@ -227,6 +227,14 @@ def comparar(juego, fecha_base, fecha_mod):
             filas.append((max(x, y), t, x, y))
     for _, t, x, y in sorted(filas, reverse=True)[:45]:
         print('  %s;%d;%d;%+d%%' % (t, x, y, 100 * (y - x) // max(x, 1)))
+    print('paises con provincias en los dos y algun dato distinto (pais;dato;base;UPM), por poblacion en el UPM:')
+    for t in sorted(set(a.suyas) & set(b.suyas), key=lambda t: -b.total[t]):
+        x, y = a.paises.get(t, {}), b.paises.get(t, {})
+        for k in ('government', 'religion', 'primary_culture', 'capital', 'civilized', 'nationalvalue'):
+            u = x[k][-1] if x and x[k] else '-'
+            v = y[k][-1] if y and y[k] else '-'
+            if u != v:
+                print('  %s;%s;%s;%s' % (t, k, u, v))
 
 
 if __name__ == '__main__':
