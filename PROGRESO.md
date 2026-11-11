@@ -193,7 +193,7 @@ Población en cifras de archivo (las personas son 4 veces más) e índice medio 
   - Unos 25 países africanos y de Oceanía tienen de religión `shamanism` y su población es `animist` al 100 %, como Oyo, Benín, Ashanti o Zimbabue. Parece una elección del UPM para todos los Estados animistas, no un relleno.
   - `civilized`: el UPM da por civilizados a 90 de 239 países en 1836; el juego base, a 66 de 131. Afganistán, Kokand, Jiva, Túnez, Trípoli, Jodhpur y Gwalior son civilizados en el UPM y no en el base. Afecta al equilibrio de 1836 y cambiarlo por fecha alteraría también 1900 a 2000.
   - 56 capitales ajenas en 1836. Alice no falla: elige sola la provincia propia más poblada. Mónaco y Liechtenstein tienen de capital la provincia 1.
-  - Datos sueltos distintos del base: Países Bajos y Brasil con otro gobierno, Francia y Portugal con otro valor nacional, Estambul y otras 10 capitales en otra provincia.
+  - Datos sueltos distintos del base: Países Bajos y Brasil con otro gobierno, Francia y Portugal con otro valor nacional, y 14 capitales en otra provincia, entre ellas la otomana (858 en lugar de 860).
 
 ## 2026-11-10: preparación de la fase 3, auditoría de las fechas
 
